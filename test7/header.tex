@@ -1,0 +1,83 @@
+%%% Document Settings %%%%
+%\usepackage[utf8]{inputenc}
+
+\usepackage[
+    twoside,
+    top=1in,
+    bottom=0.75in,
+    inner=0.5in,
+    outer=0.5in,
+]{geometry}
+\pagestyle{myheadings}
+\usepackage[dvipsnames,svgnames]{xcolor}
+
+%%%% Additional Commands to Load %%%%
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+%\usepackage{minted}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tabularx,colortbl}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{titling}
+\usepackage{mathrsfs}
+\usepackage{calc}
+\usepackage{subcaption}
+
+\usepackage{listings}
+%\usepackage{newtxtext}
+\usepackage[strict]{changepage} 
+\usepackage{framed}
+\definecolor{formalshade}{rgb}{0.95,0.95,1}
+
+%%%% Commands to Define Homework Boxes %%%%
+%%%% Box Definition %%%%
+\newtcolorbox{prob}[1]{
+% Set box style
+    sidebyside,
+    sidebyside align=top,
+% Dimensions and layout
+    width=\textwidth,
+    toptitle=2.5pt,
+    bottomtitle=2.5pt,
+    righthand width=0.20\textwidth,
+% Coloring
+    colbacktitle=gray!30,
+    coltitle=black,
+    colback=white,
+    colframe=black,
+% Title formatting
+    title={
+        #1 \hfill Grade:\phantom{WWWW}
+    },
+    fonttitle=\large\bfseries
+}
+
+%%%% Environment Definition %%%%
+\newenvironment{problem}[1]{
+    \begin{prob}{#1}
+}
+{
+    \tcblower
+    \centering
+    \textit{\scriptsize\bfseries Faculty Comments}
+    \vspace{\baselineskip}
+    \end{prob}
+}
+
+\newenvironment{formal}{%
+\def\FrameCommand{%
+\hspace{1pt}%
+{\color{DarkBlue}\vrule width 2pt}%
+{\color{formalshade}\vrule width 4pt}%
+\colorbox{formalshade}%
+}%
+\MakeFramed{\advance\hsize-\width\FrameRestore}%
+\noindent\hspace{-4.55pt}% disable indenting first paragraph
+\begin{adjustwidth}{}{7pt}%
+\vspace{2pt}\vspace{2pt}%
+}
+{%
+\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}

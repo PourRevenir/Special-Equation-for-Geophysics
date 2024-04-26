@@ -1,0 +1,142 @@
+\documentclass[12pt]{ctexart}
+    \input{header}
+
+    \title{特殊方程作业2}
+    \author{地物2201班\ 杨曜堃}
+    \date{\today}
+%%% document
+\begin{document}
+
+% Format Running Header
+    \markboth{\theauthor}{\thetitle}
+    \maketitle
+    求解满足下列边界条件及初始条件的弦振动方程。
+    \begin{description}
+        \item[问题1]$$\begin{cases}
+            \dfrac{\partial^2u}{\partial t^2}=\dfrac{\partial^2u}{\partial x^2},&\quad 0<x<1,t>0\\
+            u|_{x=0}=0,\ u|_{x=1}=0,&\quad t\geqslant 0\\
+            u|_{t=0}=\sin \pi x,\ \dfrac{\partial u}{\partial t}|_{t=0}=0,&\quad 0\leqslant x\leqslant 1
+        \end{cases}$$
+        \item[问题2]$$\begin{cases}
+            \dfrac{\partial^2u}{\partial t^2}=4\dfrac{\partial^2u}{\partial x^2},&\quad 0<x<1,t>0\\
+            u|_{x=0}=0,\ u|_{x=1}=0,&\quad t\geqslant 0\\
+            u|_{t=0}=\sin 2\pi x,\ \dfrac{\partial u}{\partial t}|_{t=0}=\sin 3\pi x,&\quad 0\leqslant x\leqslant 1
+        \end{cases}$$
+        \item[问题3]$$\begin{cases}
+            \dfrac{\partial^2u}{\partial t^2}=\dfrac{\partial^2u}{\partial x^2},&\quad 0<x<1,t>0\\
+            u|_{x=0}=0,\ u|_{x=1}=0,&\quad t\geqslant 0\\
+            u|_{t=0}=\sin \pi x +3\sin 2\pi x-\sin 5\pi x,\ \dfrac{\partial u}{\partial t}|_{t=0}=0,&\quad 0\leqslant x\leqslant 1
+        \end{cases}$$
+    \end{description}
+    \begin{problem}{问题\#1}
+        分离变量法,设$u(x,t)=X(x)T(t)$，代入偏微分方程可得
+        $$
+        \dfrac{X''(x)}{X(x)}=\dfrac{T''(t)}{T(t)}=-\lambda
+        $$
+        代入边界条件，得到常微分方程的边值问题
+        $$
+        \begin{cases}
+            X''(t)+\lambda X(t)=0\\
+            X(0)=X(1)=0
+        \end{cases}
+        $$
+        采用本征值法讨论，排除零解情况，得到在$\lambda >0$时
+        $$
+        X(x)=A\cos\sqrt{\lambda}x+B\sin\sqrt{\lambda}x
+        $$
+        代入边界条件得到
+        $$
+        X(0)=A=0,\ X(1)=B\sin\sqrt{-\lambda}=0
+        $$
+        由于$B$不能为0，所以$\sin\sqrt{\lambda}=0$，解出
+        $$
+        \lambda_n=(n\pi)^2,\ X_n(x)=B\sin n\pi x,\ n=1,2,\cdots
+        $$
+        进一步可以解出
+        $$
+        T_n(t)=C_n\cos n\pi t+D_n\sin n\pi t,\ n=1,2,\cdots
+        $$
+        得到满足条件的一组特解
+        $$
+        u_n(x,t)=(C_n\cos n\pi t+D_n\sin n\pi t)\sin n\pi x,\ n=1,2,\cdots
+        $$
+        代入初始条件
+        $$
+        \begin{cases}
+            u|_{t=0}=\sum C_n\sin n\pi x=\sin \pi x,\\
+            \dfrac{\partial u}{\partial t}|_{t=0} =n\pi\sum D_n\sin n\pi x=0 
+        \end{cases}
+        ,n=1,2,\cdots
+        $$
+        因此我们取$C_1=1$，$D_n=0$，得到形式解 
+        $$
+        u(x,t)=\cos\pi t\sin \pi x
+        $$
+    \end{problem}
+    \begin{problem}{问题\#2}
+        分离变量法,设$u(x,t)=X(x)T(t)$，代入偏微分方程可得
+        $$
+        \dfrac{X''(x)}{X(x)}=\dfrac{1}{4}\dfrac{T''(t)}{T(t)}=-\lambda
+        $$
+        代入边界条件，得到常微分方程的边值问题
+        $$
+        \begin{cases}
+            X''(t)+\lambda X(t)=0\\
+            X(0)=X(1)=0
+        \end{cases}
+        $$
+        采用本征值法讨论，排除零解情况，解出本征值和本征函数
+        $$
+        \lambda_n=(n\pi)^2,\ X_n(x)=\sin n\pi x,\ n=1,2,\cdots
+        $$
+        进一步可以解出
+        $$
+        T_n(t)=C_n\cos 2n\pi t+D_n\sin 2n\pi t,\ n=1,2,\cdots
+        $$
+        得到满足条件的一组特解
+        $$
+        u_n(x,t)=(C_n\cos 2n\pi t+D_n\sin 2n\pi t)\sin n\pi x,\ n=1,2,\cdots
+        $$
+        代入初始条件
+        $$
+        \begin{cases}
+            u|_{t=0}=\sum C_n\sin n\pi x=\sin 2\pi x,\\
+            \dfrac{\partial u}{\partial t}|_{t=0}=2n\pi\sum D_n\sin n\pi x=\sin 3\pi x
+        \end{cases}
+        ,n=1,2,\cdots
+        $$
+        取$C_2=1$，$D_3=\dfrac{1}{6\pi}$，得到形式解
+        $$
+        u(x,t)=\cos4\pi t\sin2\pi x+\dfrac{1}{6\pi}\sin6\pi t\sin3\pi x
+        $$
+    \end{problem}
+    \begin{problem}{问题\#3}
+        分离变量法,设$u(x,t)=X(x)T(t)$，代入偏微分方程可得
+        $$
+        \dfrac{X''(x)}{X(x)}=\dfrac{T''(t)}{T(t)}=-\lambda
+        $$
+        采用本征值法讨论，并代入边界条件，解出
+        $$
+        X_n(x)=\sin n\pi x,\ n=1,2,\cdots
+        $$
+        $$
+        T_n(t)=C_n\cos n\pi t+D_n\sin n\pi t,\ n=1,2,\cdots
+        $$
+        得到满足条件的一组特解
+        $$
+        u_n(x,t)=(C_n\cos n\pi t+D_n\sin n\pi t)\sin n\pi x,\ n=1,2,\cdots
+        $$
+        代入初始条件
+        $$
+        \begin{cases}
+            u|_{t=0}=\sum C_n\sin n\pi x=\sin\pi x+3\sin2\pi x-\sin5\pi x\\
+            \dfrac{\partial u}{\partial t}|_{t=0}=n\pi\sum D_n\sin n\pi x=0
+        \end{cases}
+        ,n=1,2,\cdots
+        $$
+        我们取$C_1=1$，$C_2=3$，$C_5=-1$，$D_n=0$，得到形式解
+        $$
+        u(x,t)=\cos\pi t\sin\pi x+3\cos2\pi t\sin2\pi x-\cos5\pi t\sin5\pi x
+        $$
+    \end{problem}
+\end{document}

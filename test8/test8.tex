@@ -1,0 +1,66 @@
+\documentclass[12pt]{ctexart}
+    \input{header}
+
+    \title{特殊方程作业8}
+    \author{地物2201班\ 杨曜堃}
+    \date{\today}
+%%% document
+\begin{document}
+
+% Format Running Header
+    \markboth{\theauthor}{\thetitle}
+    \maketitle
+    \begin{description}
+        \item[问题1] 设$u(x,t)$满足波动方程的Cauchy问题$$
+        \begin{cases}
+            \dfrac{\partial^2u}{\partial t^2}=\dfrac{\partial^2u}{\partial x^2},&\quad-\infty<x<+\infty,\ t>0\\
+            u|_{t=0}=\varphi(x)\\
+            \left.\dfrac{\partial u}{\partial t}\right|_{t=0}=\phi(x)
+        \end{cases}
+        $$
+        \begin{enumerate}
+            \item 写出形式解（即D'Alembert解）；
+            \item $\varphi(x)$与$\phi(x)$满足何条件时，仅由左行波构成？
+            \item $\varphi(x)$与$\phi(x)$满足何条件时，仅由右行波构成？
+            \item 若当$|x|\geqslant10$时初值为0，那么$t$为何值时，$u(-10,t)$不受初始扰动的影响？
+        \end{enumerate}
+    \end{description}
+    \begin{problem}{问题\#1.1}
+        由波动方程的行波法，可以得到达朗贝尔公式
+        $$
+        u(x,t)=\dfrac{1}{2}\varphi(x+t)+\dfrac{1}{2}\varphi(x-t)+\dfrac{1}{2}\int^{x+t}_{x-t}\phi(s)\text{d}s
+        $$
+    \end{problem}
+    \begin{problem}{问题\#1.2}
+        由题1.1解出的答案，可以得知，当
+        $$
+        \phi(x)=\varphi'(x)
+        $$
+        可以解出$u(x,t)=\varphi(x+t)$，即仅有左行波。
+    \end{problem}
+    \begin{problem}{问题\#1.3}
+        由题1.1解出的答案，可以得知，当
+        $$
+        \phi(x)=-\varphi'(x)
+        $$
+        可以解出$u(x,t)=\varphi(x-t)$，即仅有右行波。
+    \end{problem}
+    \begin{problem}{问题\#1.4}
+        采用图解法，如图所示
+        \begin{center}
+            \includegraphics[width=10cm]{fig1.png}
+        \end{center}
+        可得当$t<10$或$t>30$时，不受初始扰动的影响。
+    \end{problem}
+    % \begin{lstlisting}[language = Matlab,title={test4\_script.m},  numbers=left, 
+    %     numberstyle=\tiny,keywordstyle=\color{blue!70},
+    %     commentstyle=\color{red!50!green!50!blue!50},frame=shadowbox,
+    %     rulesepcolor=\color{red!20!green!20!blue!20},basicstyle=\ttfamily]
+    % \end{lstlisting}
+    % \begin{figure}[htbp]
+    %     \small
+    %     \centering
+    %     \includegraphics[width=16cm]{fig1.png}
+    %     \caption{第一题结果图} \label{Fig:aa}
+    % \end{figure}
+\end{document}

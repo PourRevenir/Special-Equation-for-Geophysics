@@ -1,0 +1,55 @@
+\documentclass[12pt]{ctexart}
+    \input{header}
+
+    \title{特殊方程作业1}
+    \author{地物2201班\ 杨曜堃}
+    \date{\today}
+%%% document
+\begin{document}
+
+% Format Running Header
+    \markboth{\theauthor}{\thetitle}
+    \maketitle
+    \begin{description}
+        \item[问题1] 设弦的两端固定与$x=0$及$x=L$，弦的初始位移如图所示，初速度为0，又没有外力作用，试写出相应的定解问题。
+    \end{description}
+
+    \begin{center}
+        \includegraphics[width=16cm]{fig1.png}
+    \end{center}
+    
+    \begin{problem}{问题\#1}
+        已知弦的振动满足一维波动方程（忽略重力）
+        $$
+        \dfrac{\partial^2u}{\partial t^2}=a^2\dfrac{\partial^2u}{\partial x^2}
+        $$
+        由初始位移可知定解问题的初始条件
+        $$
+        u(x,t)|_{t=0}=
+            \begin{cases}
+                \dfrac{h}{c}x, & \quad 0\leqslant x\leqslant c\\
+                \dfrac{h}{c-L}x+\dfrac{hL}{L-c}, & \quad c<x\leqslant L
+            \end{cases} 
+        $$
+        由于弦的两端固定、初速度为0、没有外力作用，因此采用Dirichlet边界条件
+        $$
+            u(x,t)|_{x=0}=u(x,t)|_{x=L}=0
+        $$
+        定解问题可以描述为
+        $$
+            \begin{cases}
+                \dfrac{\partial^2u}{\partial t^2}=a^2\dfrac{\partial^2u}{\partial x^2},&\quad 0<x<L,t>0\\
+                u|_{x=0}=0,u|_{x=L}=0,&\quad t\geqslant 0\\
+                u|_{t=0}=\varphi(x)\\,\dfrac{\partial u}{\partial t}|_{t=0}=0,&\quad 0\leqslant x\leqslant L
+            \end{cases}
+        $$
+        其中
+        $$
+        \varphi(x)=
+            \begin{cases}
+                \dfrac{h}{c}x, & \quad 0\leqslant x\leqslant c\\
+                \dfrac{h}{c-L}x+\dfrac{hL}{L-c}, & \quad c<x\leqslant L
+            \end{cases} 
+        $$
+    \end{problem}
+\end{document}
