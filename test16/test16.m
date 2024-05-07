@@ -17,8 +17,8 @@ s2 = 0.01;
 mu = 4*pi*10^(-7);
 h = 1000;
 
-Z = 3000;
-N = 300;
+Z = 5000;
+N = 500;
 dz = Z/N;
 z = 0:dz:Z;
 
@@ -30,7 +30,7 @@ s(h/dz+1:N) = s2;
 b = zeros(N+1,1);
 b(1) = 1;
 
-m = 14;
+m = 15;
 pa = zeros(2*m+1,1);
 phase = zeros(2*m+1,1);
 w = zeros(2*m+1,1);
@@ -41,18 +41,17 @@ for j = -m:m
     A = sparse(N+1,N+1);
     A(1,1) = 1;
     A(N+1,N)=-1/dz;
-    A(N+1,N+1)=-1/dz+sqrt(-1i*w(j+m+1)*mu*s(N));
-    a = 1/dz^2;q = 0.5*1i*w(j+m+1)*mu;r=-2*a;
+    A(N+1,N+1)=1/dz+sqrt(-1i*w(j+m+1)*mu*s(N));
     for i = 2:N
-        A(i,i-1) = a;
-        A(i,i+1) = a;
-        A(i,i) = q*(s(i-1)+s(i))+r;
+        A(i,i-1) = 1/dz^2;
+        A(i,i+1) = 1/dz^2;
+        A(i,i) = 0.5*1i*w(j+m+1)*mu*(s(i-1)+s(i))-2/dz^2;
     end
     E = A\b;
 
-    Z = E(1)/((-11*E(1)+18*E(2)-9*E(3)+2*E(4))/(6*dz*1i*w(j+m+1)*mu));
+    Z = E(1)*((-11*E(1)+18*E(2)-9*E(3)+2*E(4))/(6*dz*1i*w(j+m+1)*mu));
     pa(j+m+1) = abs(Z)^2/(w(j+m+1)*mu);
-    phase(j+m+1) = rad2deg(atan(imag(Z)/real(Z)));
+    phase(j+m+1) = rad2deg(angle(Z));
 end
 
 % figure
