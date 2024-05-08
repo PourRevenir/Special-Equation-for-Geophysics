@@ -24,7 +24,7 @@ q = 1/dy^2;
 for i = 1:M+1
     for j = 1:N+1
     k = (j-1)*(M+1)+i;
-    if(i==0||i==M+1)
+    if(i==1||i==M+1)
         A(k,k) = 1;
         b(k,1) = 0;
     elseif(j==1)
