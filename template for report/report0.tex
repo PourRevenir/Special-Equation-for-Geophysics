@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper]{geometry}
+\geometry{left=2.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm}
+
+\usepackage{ctex}
+
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{minted}
+
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tabularx,colortbl}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{titling}
+\usepackage{mathrsfs}
+\usepackage{calc}
+\usepackage{listings}
+
+\usepackage[strict]{changepage} 
+\usepackage{framed}
+\definecolor{formalshade}{rgb}{0.95,0.95,1}
+\usepackage{float}
+
+\newenvironment{problem}[1]{
+    \begin{prob}{#1}
+}
+{
+    \tcblower
+    \centering
+    \textit{\scriptsize\bfseries Faculty Comments}
+    \vspace{\baselineskip}
+    \end{prob}
+}
+
+% 在此输入基本信息
+\newcommand{\experiName}{（实验名称）}
+\newcommand{\advisorName}{（指导教师姓名）}
+\newcommand{\studentName}{（学生姓名）}
+\newcommand{\studentNum}{（学号）}
+\newcommand{\classNum}{（班级）}
+
+\begin{document}
+
+\begin{center}
+    ~\\
+    ~\\
+    \huge \bf 《地球物理特殊方程》实验报告
+\end{center}
+
+\vspace{2.5cm}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=5.5cm]{Fig/logo.png}
+\end{figure}
+
+\vspace{4cm}
+\begin{center}
+    \Large \bf 班\qquad 级：\underline{\makebox[12em][c]{\kaishu \classNum}}
+
+    \Large \bf 姓\qquad 名：\underline{\makebox[12em][c]{\kaishu \studentName}}
+
+    \Large \bf 指导老师：\underline{\makebox[12em][c]{\kaishu \advisorName}}
+\end{center}
+
+\clearpage
+
+\begin{center}
+    \huge 实验一 \quad （实验名称）
+\end{center}
+\section{实验内容}
+
+\section{实验目的}
+
+\section{实验过程及结果}
+
+\section{实验总结及收获}
+
+\end{document}
