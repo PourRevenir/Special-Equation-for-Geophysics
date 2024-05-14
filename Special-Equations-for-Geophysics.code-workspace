@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"name":"xelatex",
+			"command":"xelatex",
+			"args":[
+				"-synctex=1",
+				"--shell-escape",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"%DOC%"
+			]
+	}
+}
