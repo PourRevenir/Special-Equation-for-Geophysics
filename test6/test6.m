@@ -10,9 +10,8 @@ uxt = 3*sin(5*pi*X).*exp(-(5*pi)^2*T)+100;
 
 % 绘制图像
 figure;
-contourf(X,T,uxt,20);
+surf(x,t,uxt);
 colorbar;
 xlabel('x');
 ylabel('t');
-
-surf(x,t,uxt);
+zlabel('u');
